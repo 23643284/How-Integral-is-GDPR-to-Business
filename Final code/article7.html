@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Article 7 - GDPR</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:Poppins;
+background:linear-gradient(135deg,#1f3c88,#4facfe);
+color:white;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:rgba(0,0,0,0.25);
+}
+
+nav ul{display:flex;gap:20px;list-style:none;}
+nav ul li{cursor:pointer;}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.15);
+padding:20px;
+margin:20px 0;
+border-radius:15px;
+}
+
+h2{color:#ffd700;}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h3>GDPR Project</h3>
+<ul>
+<li onclick="location.href='index.html'">Home</li>
+<li onclick="location.href='article5.html'">Article 5</li>
+<li onclick="location.href='article7.html'">Article 7</li>
+<li onclick="location.href='privacy.html'">Privacy</li>
+<li onclick="location.href='dashboard.html'">Dashboard</li>
+<li onclick="location.href='quiz.html'">Quiz</li>
+</ul>
+</nav>
+
+<div class="container">
+
+<h1>Article 7 – Conditions for Consent</h1>
+
+<div class="card">
+<h2>1. Proof of Consent</h2>
+<p>Organisations must be able to demonstrate that a user has given consent. </p>
+<p>This system records consent in localStorage when the user accepts the consent banner.</p>
+</div>
+
+<div class="card">
+<h2>2. Clear and Accessible Consent</h2>
+<p>Consent must be clearly presented and easy to understand, using plain language. </p>
+<p>The consent banner is simple and clearly explains data usage.</p>
+</div>
+
+<div class="card">
+<h2>3. Right to Withdraw Consent</h2>
+<p>Users must be able to withdraw consent at any time, and it must be as easy as giving it. </p>
+<p>This is implemented through the “Delete My Data” feature.</p>
+</div>
+
+<div class="card">
+<h2>4. Freely Given Consent</h2>
+<p>Consent must be freely given and not forced or tied to unnecessary conditions. </p>
+<p>Users are not forced to give consent and can decline it.</p>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Article 5 - GDPR</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:Poppins;
+background:linear-gradient(135deg,#1f3c88,#4facfe);
+color:white;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:rgba(0,0,0,0.25);
+}
+
+nav ul{display:flex;gap:20px;list-style:none;}
+nav ul li{cursor:pointer;}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.15);
+padding:20px;
+margin:20px 0;
+border-radius:15px;
+}
+
+h2{color:#ffd700;}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h3>GDPR Project</h3>
+<ul>
+<li onclick="location.href='index.html'">Home</li>
+<li onclick="location.href='article5.html'">Article 5</li>
+<li onclick="location.href='article7.html'">Article 7</li>
+<li onclick="location.href='privacy.html'">Privacy</li>
+<li onclick="location.href='dashboard.html'">Dashboard</li>
+<li onclick="location.href='quiz.html'">Quiz</li>
+</ul>
+</nav>
+
+<div class="container">
+
+<h1>Article 5 – Principles of Data Processing</h1>
+
+<div class="card">
+<h2>1. Lawfulness, Fairness and Transparency</h2>
+<p>Personal data must be processed lawfully, fairly and transparently, meaning users must clearly understand how their data is being used.</p>
+<p>In this system, this is shown through the consent banner and privacy policy which explain how quiz data is stored.</p>
+</div>
+
+<div class="card">
+<h2>2. Purpose Limitation</h2>
+<p>Data must be collected for specific, explicit and legitimate purposes and not used for anything else.</p>
+<p>This system only uses data to track quiz results and does not reuse it for other purposes.</p>
+</div>
+
+<div class="card">
+<h2>3. Data Minimisation</h2>
+<p>Data collected must be limited to what is necessary for the purpose. </p>
+<p>This project does not collect personal information like names or emails, reducing privacy risks.</p>
+</div>
+
+<div class="card">
+<h2>4. Accuracy</h2>
+<p>Personal data must be accurate and kept up to date, with incorrect data corrected or deleted.</p>
+<p>The system ensures accuracy by recording quiz results directly from user input.</p>
+</div>
+
+<div class="card">
+<h2>5. Storage Limitation</h2>
+<p>Data should only be stored for as long as necessary. </p>
+<p>Users can delete their data at any time using the “Delete My Data” feature.</p>
+</div>
+
+<div class="card">
+<h2>6. Integrity and Confidentiality</h2>
+<p>Data must be processed securely to prevent unauthorised access or loss. </p>
+<p>This system stores data locally in the browser, meaning it is not shared externally.</p>
+</div>
+
+<div class="card">
+<h2>7. Accountability</h2>
+<p>The organisation must be able to demonstrate compliance with all principles. </p>
+<p>This project demonstrates accountability through consent, transparency, and user control over data.</p>
+</div>
+
+</div>
+
+</body>
+</html>

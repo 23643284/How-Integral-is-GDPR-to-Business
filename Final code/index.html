@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GDPR Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#1f3c88,#4facfe);
+color:white;
+min-height:100vh;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:rgba(0,0,0,0.25);
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+nav ul li{cursor:pointer;}
+
+.container{
+padding:60px;
+text-align:center;
+animation:fadeIn 0.8s ease;
+}
+
+.card{
+background:rgba(255,255,255,0.15);
+padding:30px;
+margin:15px;
+border-radius:15px;
+display:inline-block;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h3>GDPR Project</h3>
+<ul>
+<li onclick="location.href='index.html'">Home</li>
+<li onclick="location.href='article5.html'">Article 5</li>
+<li onclick="location.href='article7.html'">Article 7</li>
+<li onclick="location.href='privacy.html'">Privacy</li>
+<li onclick="location.href='dashboard.html'">Dashboard</li>
+<li onclick="location.href='quiz.html'">Quiz</li>
+</ul>
+</nav>
+
+<div class="container">
+<h1>How Integral is GDPR to Business</h1>
+<p style="max-width:700px;margin:20px auto;line-height:1.6;">
+This site explores how the General Data Protection Regulation (GDPR) helps keep user information safe in online systems. It emphasises important rules mentioned in Article 5 and the requirements for consent as stated in Article 7. Visitors can participate in the material through an engaging quiz, while the platform showcases real-world GDPR application, such as managing consent, storing data, and user rights.
+</p>
+<div class="card" onclick="location.href='article5.html'">Article 5</div>
+<div class="card" onclick="location.href='article7.html'">Article 7</div>
+<div class="card" onclick="location.href='quiz.html'">Quiz</div>
+<div class="card" onclick="location.href='dashboard.html'">Dashboard</div>
+</div>
+
+<!-- CONSENT -->
+<div id="consentBanner" style="position:fixed;bottom:0;width:100%;background:#000;color:#fff;padding:15px;text-align:center;display:none;">
+This site stores quiz results locally to provide analytics and improve learning.<br><br>
+<button onclick="giveConsent()">Accept</button>
+<button onclick="declineConsent()">Decline</button>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+checkConsent(false);
+</script>
+
+<script>
+function checkConsent(){
+if(!localStorage.getItem("gdprConsent")){
+document.getElementById("consentBanner").style.display="block";
+}
+}
+function giveConsent(){
+localStorage.setItem("gdprConsent","true");
+document.getElementById("consentBanner").style.display="none";
+}
+function declineConsent(){
+localStorage.setItem("gdprConsent","false");
+document.getElementById("consentBanner").style.display="none";
+}
+checkConsent();
+</script>
+
+</body>
+</html>

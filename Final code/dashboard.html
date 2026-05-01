@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#1f3c88,#4facfe);
+color:white;
+margin:0;
+}
+
+/* NAVBAR (MATCHES YOUR SITE) */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:rgba(0,0,0,0.25);
+}
+
+nav h3{font-size:22px;font-weight:600;}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav ul li{
+cursor:pointer;
+}
+
+/* CONTENT */
+.container{
+text-align:center;
+padding:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.15);
+margin:20px auto;
+padding:20px;
+border-radius:15px;
+width:60%;
+font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h3>GDPR Project</h3>
+<ul>
+<li onclick="location.href='index.html'">Home</li>
+<li onclick="location.href='article5.html'">Article 5</li>
+<li onclick="location.href='article7.html'">Article 7</li>
+<li onclick="location.href='privacy.html'">Privacy</li>
+<li onclick="location.href='dashboard.html'">Dashboard</li>
+<li onclick="location.href='quiz.html'">Quiz</li>
+</ul>
+</nav>
+
+<div class="container">
+
+<h1>Analytics Dashboard</h1>
+
+<div class="card" id="total"></div>
+<div class="card" id="average"></div>
+<div class="card" id="best"></div>
+<div class="card" id="easy"></div>
+<div class="card" id="medium"></div>
+<div class="card" id="hard"></div>
+
+</div>
+
+<script>
+
+// GET DATA
+let results = JSON.parse(localStorage.getItem("quizResults")) || [];
+
+if(results.length === 0){
+document.getElementById("total").innerText = "No quiz data yet";
+}else{
+
+// TOTAL ATTEMPTS
+let total = results.length;
+
+// OVERALL AVERAGE
+let avg = (
+results.reduce((sum,r)=>sum+(r.score/r.total),0) / total * 100
+).toFixed(1);
+
+// BEST SCORE
+let best = Math.max(...results.map(r=>(r.score/r.total)*100)).toFixed(1);
+
+// PER LEVEL
+let easy = results.filter(r=>r.level==="easy");
+let medium = results.filter(r=>r.level==="medium");
+let hard = results.filter(r=>r.level==="hard");
+
+function calcStats(arr){
+if(arr.length===0) return {avg:0,best:0};
+
+let avg = (
+arr.reduce((s,r)=>s+(r.score/r.total),0)/arr.length*100
+).toFixed(1);
+
+let best = Math.max(...arr.map(r=>(r.score/r.total)*100)).toFixed(1);
+
+return {avg,best};
+}
+
+let easyStats = calcStats(easy);
+let mediumStats = calcStats(medium);
+let hardStats = calcStats(hard);
+
+// DISPLAY
+document.getElementById("total").innerText = "Total Attempts: " + total;
+document.getElementById("average").innerText = "Overall Average: " + avg + "%";
+document.getElementById("best").innerText = "Best Score: " + best + "%";
+
+document.getElementById("easy").innerText =
+"Easy → Attempts: " + easy.length + " | Avg: " + easyStats.avg + "% | Best: " + easyStats.best + "%";
+
+document.getElementById("medium").innerText =
+"Medium → Attempts: " + medium.length + " | Avg: " + mediumStats.avg + "% | Best: " + mediumStats.best + "%";
+
+document.getElementById("hard").innerText =
+"Hard → Attempts: " + hard.length + " | Avg: " + hardStats.avg + "% | Best: " + hardStats.best + "%";
+
+}
+
+</script>
+
+</body>
+</html>
